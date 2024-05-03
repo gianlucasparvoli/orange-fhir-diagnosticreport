@@ -4,10 +4,11 @@ Implementation of  [Orange Data Mining](https://orangedatamining.com/) widget of
 
 
 ## Interface
-![Interface](./interface.png)
+![Interface](./img/interface.png)
 Components: 
-- API Case: this case is specific for making a request via API (Ex: https://spark.incendi.no/fhir/DiagnosticReport/:id) and activating all the previous functionality. It will only be available if you do not upload the widget via file first
-- Information: shows information relevant to all developed cases as well as the various possible errors
+- API Case: this case is specific for making a request via API  and activating all the previous functionality. It will only be available if you do not upload the widget via file first
+- Information: shows information relevant to all developed cases as well as the various possible errors.
+
 Then, this widget accepts input and output, defined as:
 - Input: accepts the list of file paths coming from the Loading widget
 - Output: returns a Data Table with the processed information
@@ -15,8 +16,8 @@ Then, this widget accepts input and output, defined as:
 ## Code
 Divided in: 
 1. Data Loading: consists of obtaining and importing data from various sources. In the case of development from the Orange Widget with the DiagnosticReport resource, we have two different types of data loading:
-- Via API
-- Synthea JSON file selections
+- Via API (Example: https://spark.incendi.no/fhir/DiagnosticReport/:id)
+- Synthea JSON file selections (Example of Json: https://mitre.box.com/shared/static/ylzmiichhvtw1igr4ck6q32i5b333nqs.zip)
 
 2. Data Cleaning: receive a dataframe with all the raw data from the previous step and created a new, clean dataframe, which contains the following information:
 - ResourceID: Unique identifier for DiagnosticReport resources
@@ -38,7 +39,7 @@ Finally, within commit_table, we proceed to build the Orange table with the doma
 
 ## Workflows Emaples
 1. General distribution of DiagnosticReport with file entry:
-![Example 1](./example1.png)
+![Example 1](./img/example1.png)
 
 2. Merge of results between DiagnosticReport and Patient:
-![Example 2](./example2.png)
+![Example 2](./img/example2.png)
